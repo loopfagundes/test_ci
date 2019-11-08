@@ -7,11 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import tasks.HomeTask;
 import tasks.LoginTask;
 
-public class LoginTestCase {
+public class CompraTestCase {
+	
 	private static WebDriver driver;
 	private static LoginTask loginTask;
+	private static HomeTask homeTask;
 	
 	@BeforeClass
 	public static void setUp() {
@@ -23,8 +26,10 @@ public class LoginTestCase {
 	}
 	
 	@Test
-	public void test () {
+	public void test () throws InterruptedException {
 		loginTask.loginAppObject("luk.ninja.91@gmail.com", "d8i5d2i0");
+		homeTask.homeAppObject("dress");
+	
 	}
 	
 	@AfterClass

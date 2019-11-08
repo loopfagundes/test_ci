@@ -14,7 +14,7 @@ public class StoreTask {
 		this.storeAppObject = new StoreAppObject(driver);
 	}
 	
-	public void storeAppObject(String buscar) throws InterruptedException {
+	public void storeAppObject(String buscar) throws InterruptedException {		
 		this.storeAppObject.getBuscarTextField().sendKeys(buscar);
 		Thread.sleep(3000);
 		this.storeAppObject.getProcurarButton().click();
@@ -23,5 +23,4 @@ public class StoreTask {
 		String actual = storeAppObject.getValidarLabel().getText();
 		Assert.assertEquals(expected, actual);
 	}
-
 }

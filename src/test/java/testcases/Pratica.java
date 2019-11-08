@@ -32,7 +32,7 @@ public class Pratica {
 		WebElement elementIn = driver.findElement(By.id("SubmitLogin"));
 		elementIn.click();
 		
-		WebElement validarLoginSucess = driver.findElement(By.xpath("//*[@id='center_column']/p/text()"))
+		WebElement validarLoginSucess = driver.findElement(By.xpath("//*[@id='center_column']/p/text()"));
 		
 		System.out.println(driver.getTitle());
 		
