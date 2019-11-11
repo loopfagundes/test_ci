@@ -20,16 +20,16 @@ public class CompraTestCase {
 	public static void setUp() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+		driver.get("http://automationpractice.com/index.php");
 		driver.manage().window().maximize();
 		loginTask = new LoginTask(driver);	
+		homeTask = new HomeTask(driver);
 	}
 	
 	@Test
-	public void test () throws InterruptedException {
-		loginTask.loginAppObject("luk.ninja.91@gmail.com", "d8i5d2i0");
-		homeTask.homeAppObject("dress");
-	
+	public void test () {
+		loginTask.login("luk.ninja.91@gmail.com", "d8i5d2i0");
+		homeTask.home("dress");
 	}
 	
 	@AfterClass

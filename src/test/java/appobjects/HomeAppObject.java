@@ -22,18 +22,34 @@ public class HomeAppObject {
 	public WebElement getValidarLabel() {
 		return driver.findElement(By.className("lighter"));
 	}
+		
+	public WebElement getImagemButton() {
+		return driver.findElement (By.cssSelector("div[class='product-container'] img[title='Printed Chiffon Dress']"));
+	}
 	
-	//iframe é aqui
+	public By getTamanhoButton() {
+		return By.id("group_1");
+	}
 	
+	public By getOpcaoTamanhoButton() {
+		return By.xpath("//select[@id='group_1']/option[2]");
+	}
+	
+	public WebElement getAddToCartButton() {
+		WebElement iframe = driver.findElement(By.cssSelector(".fancybox-iframe"));// eu pego o elemento do iframe
+		WebDriver iframeDriver = driver.switchTo().frame(iframe);// aqui eu troco o contexto para o iframe
+		return iframeDriver.findElement(By.cssSelector("button[name='Submit']"));// e aqui eu faço a ação dentro do iframe
+	}
+	
+}
+
+
+
+//iframe é aqui
+
 //	public WebElement getQuickImagemButton() {
 //		driver.switchTo().defaultContent();
 //		WebElement iFrame = driver.findElement(By.cssSelector(".fancybox=iframe"));
 //		WebDriver frameDriver = driver.switchTo().frame(iFrame);
 //		return frameDriver.findElement(By.id("quantity_wanted"));
 //	}
-	
-	public WebElement getImagemButton () {
-		return driver.findElement(By.xpath("//img[@title='Printed Chiffon Dress']"));
-	}
-	
-}

@@ -11,6 +11,10 @@ public class LoginAppObject {
 		this.driver = driver;
 	}
 	
+	public WebElement getLoginButton() {
+		return driver.findElement(By.className("login"));
+	}
+	
 	public WebElement getCampoEmailTextField() {
 		return driver.findElement(By.id("email"));
 	}
