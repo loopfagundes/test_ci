@@ -3,6 +3,7 @@ package appobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class HomeAppObject {
 	private WebDriver driver;
@@ -27,29 +28,53 @@ public class HomeAppObject {
 		return driver.findElement (By.cssSelector("div[class='product-container'] img[title='Printed Chiffon Dress']"));
 	}
 	
-	public By getTamanhoButton() {
-		return By.id("group_1");
+	public WebElement getQtdTextField() {
+		driver.switchTo().defaultContent();
+		WebElement iframe = driver.findElement(By.cssSelector(".fancybox-iframe"));// eu pego o elemento do iframe
+		WebDriver iframeDriver = driver.switchTo().frame(iframe);// aqui eu troco o contexto para o iframe
+		return iframeDriver.findElement(By.id("quantity_wanted"));// e aqui eu faço a ação dentro do iframe
 	}
 	
-	public By getOpcaoTamanhoButton() {
-		return By.xpath("//select[@id='group_1']/option[2]");
+	public Select tamanhoComboBox() {
+		return new Select(this.driver.findElement(By.id("group_1")));
 	}
 	
 	public WebElement getAddToCartButton() {
-		WebElement iframe = driver.findElement(By.cssSelector(".fancybox-iframe"));// eu pego o elemento do iframe
-		WebDriver iframeDriver = driver.switchTo().frame(iframe);// aqui eu troco o contexto para o iframe
-		return iframeDriver.findElement(By.cssSelector("button[name='Submit']"));// e aqui eu faço a ação dentro do iframe
+		return driver.findElement(By.cssSelector("button[name='Submit']"));
 	}
 	
+	public WebElement getProceedButton() {
+		driver.switchTo().defaultContent();
+		return driver.findElement(By.cssSelector("a.btn.btn-default.button.button-medium"));
+	}
+	
+	public WebElement getProceedToCheckoutButton() {
+		return driver.findElement(By.cssSelector("p.cart_navigation.clearfix a.button.btn.btn-default.standard-checkout.button-medium"));
+	}
+	
+	public WebElement getProceedToCheckoutAddress() {
+		return driver.findElement(By.name("processAddress"));
+	}
+	
+	public WebElement getTermsOfServiceClick() {
+		return driver.findElement(By.id("cgv"));
+	}
+	
+	public WebElement getProceedToCheckoutSubmitButton() {
+		return driver.findElement(By.name("processCarrier"));
+	}
+	
+	public WebElement getPayByBankWireButton() {
+		return driver.findElement(By.className("bankwire"));
+	}
+	
+	public WebElement getConfirmButton() {
+		return driver.findElement(By.cssSelector("button[class='button btn btn-default button-medium']"));
+	}
+	
+	 public WebElement getConfirmLabel() {
+	    return driver.findElement(By.cssSelector("div.box strong.dark"));
+	}
+
+
 }
-
-
-
-//iframe é aqui
-
-//	public WebElement getQuickImagemButton() {
-//		driver.switchTo().defaultContent();
-//		WebElement iFrame = driver.findElement(By.cssSelector(".fancybox=iframe"));
-//		WebDriver frameDriver = driver.switchTo().frame(iFrame);
-//		return frameDriver.findElement(By.id("quantity_wanted"));
-//	}

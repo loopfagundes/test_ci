@@ -19,19 +19,32 @@ public class HomeTask {
 	
 	public void home(String busca) {
 		
-		this.homeAppObject.getCampoBuscarTextField().sendKeys(busca);
-		
-		this.homeAppObject.getProcurarButton().click();
+		homeAppObject.getCampoBuscarTextField().sendKeys(busca);
+		homeAppObject.getProcurarButton().click();
 		
 //		String expected = "\"DRESS\"";
 //		String actual = homeAppObject.getValidarLabel().getText();
 //		
 //		Assert.assertEquals(expected, actual);
 
-		this.homeAppObject.getImagemButton().click();
-			
-		utils.visibilityOfElementLocated(By.cssSelector(".fancybox-iframe"));
+		homeAppObject.getImagemButton().click();
+					
+		utils.visibilityOfElementLocated(By.cssSelector(".fancybox-iframe"));		
 		
-		this.homeAppObject.getAddToCartButton().click();
+		homeAppObject.getQtdTextField().clear();		
+		homeAppObject.getQtdTextField().sendKeys("5");	
+		homeAppObject.tamanhoComboBox().selectByValue("3");
+		homeAppObject.getAddToCartButton().click();
+		
+		utils.waitElementClickable(this.homeAppObject.getProceedButton());
+		homeAppObject.getProceedButton().click();
+		
+		homeAppObject.getProceedToCheckoutButton().click();
+		homeAppObject.getProceedToCheckoutAddress().click();
+		homeAppObject.getTermsOfServiceClick().click();
+		homeAppObject.getProceedToCheckoutSubmitButton().click();
+		homeAppObject.getPayByBankWireButton().click();
+		
+		//usar assert
 	}
 }
