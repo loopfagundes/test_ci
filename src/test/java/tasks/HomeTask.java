@@ -17,9 +17,9 @@ public class HomeTask {
 		this.utils = new Utils (this.driver);
 	}
 	
-	public void home(String busca) {
-		
+	public void home(String busca) {	
 		homeAppObject.getCampoBuscarTextField().sendKeys(busca);
+		
 		homeAppObject.getProcurarButton().click();
 		
 //		String expected = "\"DRESS\"";
@@ -31,20 +31,32 @@ public class HomeTask {
 					
 		utils.visibilityOfElementLocated(By.cssSelector(".fancybox-iframe"));		
 		
-		homeAppObject.getQtdTextField().clear();		
+		homeAppObject.getQtdTextField().clear();	
+		
 		homeAppObject.getQtdTextField().sendKeys("5");	
+		
 		homeAppObject.tamanhoComboBox().selectByValue("3");
+		
 		homeAppObject.getAddToCartButton().click();
 		
 		utils.waitElementClickable(this.homeAppObject.getProceedButton());
 		homeAppObject.getProceedButton().click();
 		
 		homeAppObject.getProceedToCheckoutButton().click();
+		
 		homeAppObject.getProceedToCheckoutAddress().click();
+		
 		homeAppObject.getTermsOfServiceClick().click();
+		
 		homeAppObject.getProceedToCheckoutSubmitButton().click();
+		
 		homeAppObject.getPayByBankWireButton().click();
 		
-		//usar assert
+		homeAppObject.getConfirmButton().click();
+	
+//		String expected = "Your order on My Store is complete.";
+//		String actual = homeAppObject.getConfirmLabel().getText();
+//		
+//		Assert.assertEquals(expected, actual);
 	}
 }

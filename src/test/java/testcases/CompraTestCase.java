@@ -34,7 +34,7 @@ public class CompraTestCase {
 	
 	@AfterClass
 	public static void tearDown() {
-	//	driver.quit();
+		driver.quit();
 	}
 
 }

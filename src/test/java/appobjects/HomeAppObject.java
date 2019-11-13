@@ -72,9 +72,9 @@ public class HomeAppObject {
 		return driver.findElement(By.cssSelector("button[class='button btn btn-default button-medium']"));
 	}
 	
-	 public WebElement getConfirmLabel() {
-	    return driver.findElement(By.cssSelector("div.box strong.dark"));
-	}
+//	 public WebElement getConfirmLabel() {
+//	    return driver.findElement(By.cssSelector("div.box strong.dark"));
+//	}
 
 
 }
