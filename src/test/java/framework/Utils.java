@@ -8,20 +8,21 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utils {
 	private WebDriver driver;
-	static final int WAIT_SEC = 30;
+	private static final int WAIT_SEC = 30;
 	
-	public Utils (WebDriver driver) {
-		this.driver = driver;
-	}
-	
-	public void waitElementClickable(WebElement element) {
+	public static void waitElementClickable(WebDriver driver, WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, WAIT_SEC);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
-	public void visibilityOfElementLocated(By by) {
+	public static void visibilityOfElementLocated(WebDriver driver, By by) {
 		WebDriverWait wait = new WebDriverWait(driver, WAIT_SEC);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
+	public static void presenceOfElementLocated(WebDriver driver, By by) {
+		WebDriverWait wait = new WebDriverWait(driver, WAIT_SEC);
+		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 
 }

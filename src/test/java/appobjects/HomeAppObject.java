@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import framework.Utils;
+
 public class HomeAppObject {
 	private WebDriver driver;
 	
@@ -45,32 +47,36 @@ public class HomeAppObject {
 	
 	public WebElement getProceedButton() {
 		driver.switchTo().defaultContent();
-		return driver.findElement(By.cssSelector("a.btn.btn-default.button.button-medium"));
+		return driver.findElement(By.cssSelector("a[class='btn btn-default button button-medium']"));
 	}
 	
-	public WebElement getProceedToCheckoutButton() {
-		return driver.findElement(By.cssSelector("p.cart_navigation.clearfix a.button.btn.btn-default.standard-checkout.button-medium"));
+	public WebElement getRemoveButton() {
+		return driver.findElement(By.xpath("//i[@class='icon-trash']"));
 	}
 	
-	public WebElement getProceedToCheckoutAddress() {
-		return driver.findElement(By.name("processAddress"));
+	public WebElement getValidarRemoveLabel() {
+		return driver.findElement(By.xpath("//p[@class='alert alert-warning']"));
 	}
 	
-	public WebElement getTermsOfServiceClick() {
-		return driver.findElement(By.id("cgv"));
-	}
+//	public WebElement getProceedToCheckoutAddress() {
+//		return driver.findElement(By.name("processAddress"));
+//	}
 	
-	public WebElement getProceedToCheckoutSubmitButton() {
-		return driver.findElement(By.name("processCarrier"));
-	}
+//	public WebElement getTermsOfServiceClick() {
+//		return driver.findElement(By.id("cgv"));
+//	}
 	
-	public WebElement getPayByBankWireButton() {
-		return driver.findElement(By.className("bankwire"));
-	}
+//	public WebElement getProceedToCheckoutSubmitButton() {
+//		return driver.findElement(By.name("processCarrier"));
+//	}
 	
-	public WebElement getConfirmButton() {
-		return driver.findElement(By.cssSelector("button[class='button btn btn-default button-medium']"));
-	}
+//	public WebElement getPayByBankWireButton() {
+//		return driver.findElement(By.className("bankwire"));
+//	}
+	
+//	public WebElement getConfirmButton() {
+//		return driver.findElement(By.cssSelector("button[class='button btn btn-default button-medium']"));
+//	}
 	
 //	 public WebElement getConfirmLabel() {
 //	    return driver.findElement(By.cssSelector("div.box strong.dark"));
