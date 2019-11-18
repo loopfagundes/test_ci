@@ -35,9 +35,10 @@ public class DriverManagerFactoryFw {
 			
 		case CHROME_HEADLESS:
 			WebDriverManager.chromedriver().setup();
-			ChromeOptions option = new ChromeOptions();
-			option.addArguments("--headless");
-			driver = new ChromeDriver();
+			ChromeOptions option_headless = new ChromeOptions();
+			option_headless.addArguments("--headless");
+			option_headless.addArguments("--windows-size(1200,600)");
+			driver = new ChromeDriver(option_headless);
 			break;
 		
 		default:
@@ -48,6 +49,7 @@ public class DriverManagerFactoryFw {
 	}
 	
 	public static WebDriver setDriver(DriverTypeFw type) {
+		System.out.println("Entrou setDriver");
 		if(driver == null) {
 			driver = getManager(type);
 		}
@@ -57,6 +59,7 @@ public class DriverManagerFactoryFw {
 	public static void quitDriver() {
 		if(driver != null) {
 			driver.quit();
+			driver = null;
 		}
 	}
 }

@@ -39,20 +39,20 @@ public class HomeTask {
 		
 		homeAppObject.getAddToCartButton().click();
 		
-		utils.waitElementClickable(this.homeAppObject.getProceedButton());
-		homeAppObject.getProceedButton().click();
-		
-		homeAppObject.getProceedToCheckoutButton().click();
-		
-		homeAppObject.getProceedToCheckoutAddress().click();
-		
-		homeAppObject.getTermsOfServiceClick().click();
-		
-		homeAppObject.getProceedToCheckoutSubmitButton().click();
-		
-		homeAppObject.getPayByBankWireButton().click();
-		
-		homeAppObject.getConfirmButton().click();
+//		utils.waitElementClickable(this.homeAppObject.getProceedButton());
+//		homeAppObject.getProceedButton().click();
+//		
+//		homeAppObject.getProceedToCheckoutButton().click();
+//		
+//		homeAppObject.getProceedToCheckoutAddress().click();
+//		
+//		homeAppObject.getTermsOfServiceClick().click();
+//		
+//		homeAppObject.getProceedToCheckoutSubmitButton().click();
+//		
+//		homeAppObject.getPayByBankWireButton().click();
+//		
+//		homeAppObject.getConfirmButton().click();
 	
 //		String expected = "Your order on My Store is complete.";
 //		String actual = homeAppObject.getConfirmLabel().getText();
